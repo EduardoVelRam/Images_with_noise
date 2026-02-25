@@ -18,7 +18,7 @@ def im_noise(image, prob):
     return output
 
 # opening the image
-frame = cv2.imread('images/image3.jpg')
+frame = cv2.imread('images/image2.jpg')
 
 # change the image to gray scale
 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -37,4 +37,12 @@ cv2.imshow('Noise Image', noise_img)
 
 # wait for a key press and get in variable
 k = cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+# remove noise
+# median filter
+denoised = cv2.medianBlur(noise_img, 5)
+
+cv2.imshow('Denoised Image', denoised)
+cv2.waitKey(0)
 cv2.destroyAllWindows()
